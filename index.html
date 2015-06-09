@@ -26,7 +26,7 @@
 
         <section id="main">
           <ul id="todo-list">
-          {{#each todo in model}}
+          {{#each todo in filterResult}}
             <li>
               <button class="reWrite" {{action 'showModal' 'edit-modal' todo}}></button>
               <span class="sNo">{{_view.contentIndex}}</span>
@@ -40,9 +40,14 @@
 
         <footer id="footer">
           <span id="todo-count">
-            <strong>2</strong> todos left
+            <strong>{{remaining}}</strong> {{inflection}} left
           </span>
-          <input type="text" id="filters" placeholder="Search todos">
+          
+          {{input type="text" 
+                  id="filters" 
+                  placeholder="Search todos" 
+                  value=searchQuery
+          }}
           <button id="sort-by-date">
             Sort by Date
           </button>

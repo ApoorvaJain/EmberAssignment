@@ -18,6 +18,18 @@ Todos.TodosController = Ember.ArrayController.extend({
       todo.save();
     }
   },
+  searchQuery : null,
+
+  filterResult: function(){
+    var that = this;
+    if (that.searchQuery == undefined){
+          return this.get('content');}
+    else{
+      return this.get('content').filter(function(item,index,enumerate){
+        return item.get('title').includes(that.searchQuery);
+      });
+    }
+  }.property('searchQuery', '@each'),
 
   remaining : function(){
     return this.get('length');
