@@ -12,6 +12,7 @@ Todos.TodosRoute = Ember.Route.extend({
 	      this.render(name, {
 	        into: 'application',
 	        outlet: 'modal',
+	        path: '/xyz',
 	        model: model
 	      });
 	    },
